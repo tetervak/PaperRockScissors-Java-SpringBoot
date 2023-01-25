@@ -1,0 +1,40 @@
+/* Alex Tetervak, Sheridan College, Ontario */
+
+body{
+    padding-left: 1em;
+    font-family: sans-serif;
+}
+
+main{
+    padding-left: 1em;
+}
+
+h1{
+    color: #4caf50;
+    text-shadow: 2px 2px 5px #81c784;
+}
+
+h2 {
+    color: #00bcd4;
+}
+
+label{
+    color: #673ab7;
+}
+
+span.result{
+    color: #ff9800;
+    font-weight: bolder;
+    font-style: oblique;
+}
+
+div.choice-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+img.choice {
+    width: 60px;
+}

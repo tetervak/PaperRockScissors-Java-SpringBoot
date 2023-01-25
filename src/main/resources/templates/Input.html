@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{css/main.css}">
+    <link rel="stylesheet" href="../static/css/footer.css" th:href="@{css/footer.css}">
+    <title>Input</title>
+</head>
+<body>
+<header>
+    <h1>Paper Rock or Scissors</h1>
+</header>
+<main>
+    <h2>Select your choice</h2>
+    <form action="Output.html" th:action="@{play}">
+
+        <div class="choice-container">
+            <div>
+                <label><input type="radio" name="userChoice" th:value="paper">Paper</label><br/>
+                <img src="../static/images/paper.png" class="choice" th:src="@{images/paper.png}" alt="paper">
+            </div>
+            <div>
+                <label><input type="radio" name="userChoice" th:value="rock" checked>Rock</label><br/>
+                <img src="../static/images/rock.png" class="choice" th:src="@{images/rock.png}" alt="rock">
+            </div>
+            <div>
+                <label><input type="radio" name="userChoice" th:value="scissors">Scissors</label><br/>
+                <img src="../static/images/scissors.png" class="choice" th:src="@{images/scissors.png}" alt="scissors">
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Play">
+        </p>
+    </form>
+</main>
+<footer>
+    Sheridan College&nbsp;&nbsp;<span class='hart'>&#9825;</span>&nbsp;&nbsp;2022
+</footer>
+</body>
+</html>

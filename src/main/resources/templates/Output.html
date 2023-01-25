@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{css/main.css}">
+    <link rel="stylesheet" href="../static/css/footer.css" th:href="@{css/footer.css}">
+    <title>Output</title>
+</head>
+<body>
+<header>
+    <h1>Paper Rock or Scissors</h1>
+</header>
+<main>
+    <h2>Game Result</h2>
+    <div class="choice-container">
+        <img src="../static/images/paper.png" class="choice" alt="paper"
+             th:src="@{|images/${gameData.playerOneChoice}.png|}" th:alt="${gameData.playerOneChoice}">
+            versus
+        <img src="../static/images/rock.png" class="choice" alt="rock"
+             th:src="@{|images/${gameData.playerTwoChoice}.png|}" th:alt="${gameData.playerTwoChoice}">
+    </div>
+    <p>
+        <label>Your choice:</label>&nbsp;<span th:text="${gameData.playerOneChoice}">paper</span>
+    </p>
+    <p>
+        <label>Computer choice:</label>&nbsp;<span th:text="${gameData.playerTwoChoice}">rock</span>
+    </p>
+    <p th:switch="${gameData.gameResult.name()}">
+        <label>Result:</label>&nbsp;
+        <span class="result" th:case="PLAYER_ONE_WINS">You won!</span>
+        <!--/*/
+        <span class="result" th:case="PLAYER_TWO_WINS">Computer won!</span>
+        <span class="result" th:case="REPLAY">Replay</span>
+        /*/-->
+    </p>
+    <p>
+        <a href="Input.html" th:href="@{input}">Play Again!</a>
+    </p>
+</main>
+<footer>
+    Sheridan College&nbsp;&nbsp;<span class='hart'>&#9825;</span>&nbsp;&nbsp;2022
+</footer>
+</body>
+</html>
