@@ -2,7 +2,6 @@ package ca.tetervak.paperrockscissors.controller;
 
 import ca.tetervak.paperrockscissors.model.Choice;
 import ca.tetervak.paperrockscissors.model.GameData;
-import ca.tetervak.paperrockscissors.model.GameResult;
 import ca.tetervak.paperrockscissors.service.GameService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
