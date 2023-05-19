@@ -19,29 +19,25 @@ public class GameData {
 
     private static GameResult getGameResult(
             Choice playerOneChoice,
-            Choice playerTwoChoice){
+            Choice playerTwoChoice) {
 
-        switch(playerOneChoice){
-            case PAPER:
-                switch(playerTwoChoice){
-                    case PAPER: return GameResult.REPLAY;
-                    case ROCK: return GameResult.PLAYER_ONE_WINS;
-                    case SCISSORS: return GameResult.PLAYER_TWO_WINS;
-                }
-            case ROCK:
-                switch(playerTwoChoice){
-                    case PAPER: return GameResult.PLAYER_TWO_WINS;
-                    case ROCK: return GameResult.REPLAY;
-                    case SCISSORS: return GameResult.PLAYER_ONE_WINS;
-                }
-            case SCISSORS:
-                switch(playerTwoChoice){
-                    case PAPER: return GameResult.PLAYER_ONE_WINS;
-                    case ROCK: return GameResult.PLAYER_TWO_WINS;
-                    case SCISSORS: return GameResult.REPLAY;
-                }
-        }
-        throw new AssertionError("should never be reached");
+        return switch (playerOneChoice) {
+            case PAPER -> switch (playerTwoChoice) {
+                case PAPER -> GameResult.REPLAY;
+                case ROCK -> GameResult.PLAYER_ONE_WINS;
+                case SCISSORS -> GameResult.PLAYER_TWO_WINS;
+            };
+            case ROCK -> switch (playerTwoChoice) {
+                case PAPER -> GameResult.PLAYER_TWO_WINS;
+                case ROCK -> GameResult.REPLAY;
+                case SCISSORS -> GameResult.PLAYER_ONE_WINS;
+            };
+            case SCISSORS -> switch (playerTwoChoice) {
+                case PAPER -> GameResult.PLAYER_ONE_WINS;
+                case ROCK -> GameResult.PLAYER_TWO_WINS;
+                case SCISSORS -> GameResult.REPLAY;
+            };
+        };
     }
 
     public GameData(Choice playerOneChoice, Choice playerTwoChoice) {
