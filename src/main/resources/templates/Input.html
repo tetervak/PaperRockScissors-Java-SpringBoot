@@ -7,8 +7,8 @@
     <title>Input</title>
 </head>
 <body>
-<header>
-    <h1>Paper Rock or Scissors</h1>
+<header th:replace="~{HeaderAndFooter::Header}">
+    <h1>Some header text</h1>
 </header>
 <main>
     <h2>Select your choice</h2>
@@ -34,8 +34,8 @@
         </p>
     </form>
 </main>
-<footer>
-    Sheridan College&nbsp;&nbsp;<span class='hart'>&#9825;</span>&nbsp;&nbsp;2023
+<footer th:replace="~{HeaderAndFooter::footer}">
+    Some footer text
 </footer>
 </body>
 </html>
