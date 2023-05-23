@@ -28,6 +28,12 @@ span.result{
     font-style: oblique;
 }
 
+p.message{
+    color: #ad1457;
+    font-weight: bolder;
+    font-style: oblique;
+}
+
 div.choice-container{
     display: flex;
     flex-wrap: wrap;

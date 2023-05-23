@@ -3,6 +3,7 @@ package ca.tetervak.paperrockscissors.controller;
 import ca.tetervak.paperrockscissors.model.Choice;
 import ca.tetervak.paperrockscissors.model.GameData;
 import ca.tetervak.paperrockscissors.service.GameService;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,18 +25,26 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping(value = {"/", "input"})
-    public String input(){
+    @GetMapping(value = {"/", "/input"})
+    public String input(HttpSession session){
         log.trace("input() is called");
+        Choice computerChoice = gameService.getRandomChoice();
+        log.debug("computerChoice = " + computerChoice);
+        session.setAttribute("computerChoice", computerChoice);
         return "Input";
     }
 
     @GetMapping("/play")
-    public ModelAndView play(@RequestParam Choice userChoice){
+    public ModelAndView play(@RequestParam Choice userChoice, HttpSession session){
         log.trace("play() is called");
         log.debug("userChoice = " + userChoice);
-        Choice computerChoice = gameService.getRandomChoice();
+        Choice computerChoice = (Choice) session.getAttribute("computerChoice");
+        log.debug("computerChoice = " + computerChoice);
+        if(computerChoice == null){
+            return new ModelAndView("SessionExpired");
+        }
         GameData gameData = gameService.getGameData(userChoice, computerChoice);
+        log.debug("gameData = " + gameData);
         return new ModelAndView("Output", "gameData", gameData);
     }
 

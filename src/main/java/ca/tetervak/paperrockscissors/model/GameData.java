@@ -45,4 +45,13 @@ public class GameData {
         this.playerTwoChoice = playerTwoChoice;
         gameResult = getGameResult(playerOneChoice, playerTwoChoice);
     }
+
+    @Override
+    public String toString() {
+        return "GameData{" +
+                "playerOneChoice=" + playerOneChoice +
+                ", playerTwoChoice=" + playerTwoChoice +
+                ", gameResult=" + gameResult +
+                '}';
+    }
 }
