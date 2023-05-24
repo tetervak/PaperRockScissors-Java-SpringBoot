@@ -2,6 +2,7 @@ package ca.tetervak.paperrockscissors.controller;
 
 import ca.tetervak.paperrockscissors.model.Choice;
 import ca.tetervak.paperrockscissors.model.GameData;
+import ca.tetervak.paperrockscissors.model.InputForm;
 import ca.tetervak.paperrockscissors.service.GameService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,14 +26,17 @@ public class GameController {
     }
 
     @GetMapping(value = {"/", "/input"})
-    public String input(){
+    public ModelAndView input(){
         log.trace("input() is called");
-        return "Input";
+        Choice randomChoice = gameService.getRandomChoice();
+        InputForm inputForm = new InputForm(randomChoice);
+        return new ModelAndView("Input", "inputForm", inputForm);
     }
 
     @GetMapping("/play")
-    public ModelAndView play(@RequestParam Choice userChoice){
+    public ModelAndView play(@ModelAttribute InputForm inputForm){
         log.trace("play() is called");
+        Choice userChoice = inputForm.getUserChoice();
         log.debug("userChoice = " + userChoice);
         Choice computerChoice = gameService.getRandomChoice();
         log.debug("computerChoice = " + computerChoice);

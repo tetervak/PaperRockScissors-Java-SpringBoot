@@ -13,19 +13,19 @@
 </header>
 <main>
     <h2>Select your choice</h2>
-    <form action="Output.html" th:action="@{/play}">
+    <form action="Output.html" th:action="@{/play}" th:object="${inputForm}">
 
         <div class="choice-container">
             <div>
-                <label><input type="radio" name="userChoice" th:value="PAPER">Paper</label><br/>
+                <label><input type="radio" th:field="*{userChoice}" th:value="PAPER">Paper</label><br/>
                 <img class="choice" src="../static/images/paper.png" th:src="@{/images/paper.png}" alt="paper">
             </div>
             <div>
-                <label><input type="radio" name="userChoice" th:value="ROCK" checked>Rock</label><br/>
+                <label><input type="radio" th:field="*{userChoice}" th:value="ROCK" checked>Rock</label><br/>
                 <img class="choice" src="../static/images/rock.png" th:src="@{/images/rock.png}" alt="rock">
             </div>
             <div>
-                <label><input type="radio" name="userChoice" th:value="SCISSORS">Scissors</label><br/>
+                <label><input type="radio" th:field="*{userChoice}" th:value="SCISSORS">Scissors</label><br/>
                 <img class="choice" src="../static/images/scissors.png" th:src="@{/images/scissors.png}" alt="scissors">
             </div>
         </div>
