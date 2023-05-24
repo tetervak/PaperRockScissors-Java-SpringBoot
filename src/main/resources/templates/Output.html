@@ -26,12 +26,12 @@
     <p>
         <label>Computer choice:</label>&nbsp;<span th:text="${gameData.playerTwoChoice}">rock</span>
     </p>
-    <p th:switch="${gameData.gameResult.name()}">
+    <p th:switch="${gameData.gameResult.toString()}">
         <label>Result:</label>&nbsp;
-        <span class="result" th:case="PLAYER_ONE_WINS">You won!</span>
+        <span class="result" th:case="player_one_wins">You won!</span>
         <!--/*/
-        <span class="result" th:case="PLAYER_TWO_WINS">Computer won!</span>
-        <span class="result" th:case="REPLAY">Replay</span>
+        <span class="result" th:case="player_two_wins">Computer won!</span>
+        <span class="result" th:case="replay">Replay</span>
         /*/-->
     </p>
     <p>
