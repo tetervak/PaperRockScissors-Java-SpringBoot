@@ -15,10 +15,10 @@
     <h2>Game Result</h2>
     <div class="choice-container">
         <img src="../static/images/paper.png" class="choice" alt="paper"
-             th:src="@{|images/${gameData.playerOneChoice}.png|}" th:alt="${gameData.playerOneChoice}">
+             th:src="@{|/images/${gameData.playerOneChoice}.png|}" th:alt="${gameData.playerOneChoice}">
             versus
         <img src="../static/images/rock.png" class="choice" alt="rock"
-             th:src="@{|images/${gameData.playerTwoChoice}.png|}" th:alt="${gameData.playerTwoChoice}">
+             th:src="@{|/images/${gameData.playerTwoChoice}.png|}" th:alt="${gameData.playerTwoChoice}">
     </div>
     <p>
         <label>Your choice:</label>&nbsp;<span th:text="${gameData.playerOneChoice}">paper</span>
@@ -35,7 +35,7 @@
         /*/-->
     </p>
     <p>
-        <a href="Input.html" th:href="@{input}">Play Again!</a>
+        <a href="Input.html" th:href="@{/input}">Play Again!</a>
     </p>
 </main>
 <footer th:replace="~{HeaderAndFooter::footer}">

@@ -24,7 +24,7 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping(value = {"/", "input"})
+    @GetMapping(value = {"/", "/input"})
     public String input(){
         log.trace("input() is called");
         return "Input";
@@ -35,7 +35,9 @@ public class GameController {
         log.trace("play() is called");
         log.debug("userChoice = " + userChoice);
         Choice computerChoice = gameService.getRandomChoice();
+        log.debug("computerChoice = " + computerChoice);
         GameData gameData = gameService.getGameData(userChoice, computerChoice);
+        log.debug("gameData = " + gameData);
         return new ModelAndView("Output", "gameData", gameData);
     }
 
