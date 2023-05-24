@@ -29,6 +29,7 @@ public class GameController {
     public ModelAndView input(){
         log.trace("input() is called");
         Choice randomChoice = gameService.getRandomChoice();
+        log.debug("randomChoice = " + randomChoice);
         InputForm inputForm = new InputForm(randomChoice);
         return new ModelAndView("Input", "inputForm", inputForm);
     }
