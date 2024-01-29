@@ -15,22 +15,22 @@
     <h2>Game Result</h2>
     <div class="choice-container">
         <img src="../static/images/paper.png" class="choice" alt="paper"
-             th:src="@{|/images/${gameData.playerOneChoice}.png|}" th:alt="${gameData.playerOneChoice}">
+             th:src="@{|/images/${gameData.userChoice}.png|}" th:alt="${gameData.userChoice}">
             versus
         <img src="../static/images/rock.png" class="choice" alt="rock"
-             th:src="@{|/images/${gameData.playerTwoChoice}.png|}" th:alt="${gameData.playerTwoChoice}">
+             th:src="@{|/images/${gameData.computerChoice}.png|}" th:alt="${gameData.computerChoice}">
     </div>
     <p>
-        <label>Your choice:</label>&nbsp;<span th:text="${gameData.playerOneChoice}">paper</span>
+        <label>Your choice:</label>&nbsp;<span th:text="${gameData.userChoice}">paper</span>
     </p>
     <p>
-        <label>Computer choice:</label>&nbsp;<span th:text="${gameData.playerTwoChoice}">rock</span>
+        <label>Computer choice:</label>&nbsp;<span th:text="${gameData.computerChoice}">rock</span>
     </p>
     <p th:switch="${gameData.gameResult.toString()}">
         <label>Result:</label>&nbsp;
-        <span class="result" th:case="player_one_wins">You won!</span>
+        <span class="result" th:case="user_wins">You won!</span>
         <!--/*/
-        <span class="result" th:case="player_two_wins">Computer won!</span>
+        <span class="result" th:case="computer_wins">Computer won!</span>
         <span class="result" th:case="replay">Replay</span>
         /*/-->
     </p>

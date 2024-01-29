@@ -1,16 +1,16 @@
 package ca.tetervak.paperrockscissors.model;
 
 public class GameData {
-    private final Choice playerOneChoice;
-    private final Choice playerTwoChoice;
+    private final Choice userChoice;
+    private final Choice computerChoice;
     private final GameResult gameResult;
 
-    public Choice getPlayerOneChoice() {
-        return playerOneChoice;
+    public Choice getUserChoice() {
+        return userChoice;
     }
 
-    public Choice getPlayerTwoChoice() {
-        return playerTwoChoice;
+    public Choice getComputerChoice() {
+        return computerChoice;
     }
 
     public GameResult getGameResult() {
@@ -18,39 +18,39 @@ public class GameData {
     }
 
     private static GameResult getGameResult(
-            Choice playerOneChoice,
-            Choice playerTwoChoice) {
+            Choice userChoice,
+            Choice computerChoice) {
 
-        return switch (playerOneChoice) {
-            case PAPER -> switch (playerTwoChoice) {
+        return switch (userChoice) {
+            case PAPER -> switch (computerChoice) {
                 case PAPER -> GameResult.REPLAY;
-                case ROCK -> GameResult.PLAYER_ONE_WINS;
-                case SCISSORS -> GameResult.PLAYER_TWO_WINS;
+                case ROCK -> GameResult.USER_WINS;
+                case SCISSORS -> GameResult.COMPUTER_WINS;
             };
-            case ROCK -> switch (playerTwoChoice) {
-                case PAPER -> GameResult.PLAYER_TWO_WINS;
+            case ROCK -> switch (computerChoice) {
+                case PAPER -> GameResult.COMPUTER_WINS;
                 case ROCK -> GameResult.REPLAY;
-                case SCISSORS -> GameResult.PLAYER_ONE_WINS;
+                case SCISSORS -> GameResult.USER_WINS;
             };
-            case SCISSORS -> switch (playerTwoChoice) {
-                case PAPER -> GameResult.PLAYER_ONE_WINS;
-                case ROCK -> GameResult.PLAYER_TWO_WINS;
+            case SCISSORS -> switch (computerChoice) {
+                case PAPER -> GameResult.USER_WINS;
+                case ROCK -> GameResult.COMPUTER_WINS;
                 case SCISSORS -> GameResult.REPLAY;
             };
         };
     }
 
-    public GameData(Choice playerOneChoice, Choice playerTwoChoice) {
-        this.playerOneChoice = playerOneChoice;
-        this.playerTwoChoice = playerTwoChoice;
-        gameResult = getGameResult(playerOneChoice, playerTwoChoice);
+    public GameData(Choice userChoice, Choice computerChoice) {
+        this.userChoice = userChoice;
+        this.computerChoice = computerChoice;
+        gameResult = getGameResult(userChoice, computerChoice);
     }
 
     @Override
     public String toString() {
         return "GameData{" +
-                "playerOneChoice=" + playerOneChoice +
-                ", playerTwoChoice=" + playerTwoChoice +
+                "userChoice=" + userChoice +
+                ", computerChoice=" + computerChoice +
                 ", gameResult=" + gameResult +
                 '}';
     }
