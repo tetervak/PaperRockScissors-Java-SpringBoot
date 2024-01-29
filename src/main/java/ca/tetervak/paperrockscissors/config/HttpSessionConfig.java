@@ -30,7 +30,6 @@ public class HttpSessionConfig {
                 // This method will be automatically called when session destroyed
                 log.trace("sessionDestroyed() is called");
                 log.debug("destroyedSessionId = " + se.getSession().getId());
-
             }
         };
     }
@@ -42,9 +41,9 @@ public class HttpSessionConfig {
             public void attributeAdded(HttpSessionBindingEvent se) {
                 // This method will be automatically called when session attribute added
                 log.trace("attributeAdded() is called");
+                log.debug("sessionId = " + se.getSession().getId());
                 log.debug("addedAttributeName = " + se.getName());
                 log.debug("addedAttributeValue = " + se.getValue());
-                log.debug("sessionId = " + se.getSession().getId());
             }
 
             @Override
@@ -58,12 +57,12 @@ public class HttpSessionConfig {
             public void attributeReplaced(HttpSessionBindingEvent se) {
                 // This method will be automatically called when session attribute replace
                 log.trace("attributeReplaced() is called");
+                HttpSession session = se.getSession();
                 String attributeName = se.getName();
+                log.debug("sessionId = " + session.getId());
                 log.debug("replacedAttributeName = " + attributeName);
                 log.debug("replacedAttributeOldValue = " + se.getValue());
-                HttpSession session = se.getSession();
                 log.debug("replacedAttributeNewValue = " + session.getAttribute(attributeName));
-                log.debug("sessionId = " + session.getId());
             }
         };
     }
