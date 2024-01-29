@@ -44,12 +44,14 @@ public class HttpSessionConfig {
                 log.trace("attributeAdded() is called");
                 log.debug("addedAttributeName = " + se.getName());
                 log.debug("addedAttributeValue = " + se.getValue());
+                log.debug("sessionId = " + se.getSession().getId());
             }
 
             @Override
             public void attributeRemoved(HttpSessionBindingEvent se) {
                 // This method will be automatically called when session attribute removed
                 log.trace("attributeRemoved() is called");
+                log.debug("sessionId = " + se.getSession().getId());
             }
 
             @Override
@@ -61,6 +63,7 @@ public class HttpSessionConfig {
                 log.debug("replacedAttributeOldValue = " + se.getValue());
                 HttpSession session = se.getSession();
                 log.debug("replacedAttributeNewValue = " + session.getAttribute(attributeName));
+                log.debug("sessionId = " + session.getId());
             }
         };
     }
