@@ -1,8 +1,8 @@
 package ca.tetervak.paperrockscissors.model;
 
 public enum GameResult {
-    PLAYER_ONE_WINS,
-    PLAYER_TWO_WINS,
+    USER_WINS,
+    COMPUTER_WINS,
     REPLAY;
 
     @Override
