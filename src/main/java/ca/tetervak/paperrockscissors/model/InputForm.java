@@ -2,10 +2,7 @@ package ca.tetervak.paperrockscissors.model;
 
 public class InputForm {
 
-    private Choice userChoice = Choice.ROCK;
-
-    public InputForm() {
-    }
+    private final Choice userChoice;
 
     public InputForm(Choice userChoice) {
         this.userChoice = userChoice;
@@ -15,7 +12,4 @@ public class InputForm {
         return userChoice;
     }
 
-    public void setUserChoice(Choice userChoice) {
-        this.userChoice = userChoice;
-    }
 }
